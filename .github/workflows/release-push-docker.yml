@@ -162,7 +162,7 @@ jobs:
       - name: "[Backend] - Create manifest list and push"
         working-directory: digests/backend
         run: |
-          docker buildx imagetools create ${{ secrets.DOCKER_ORG_NAME }}/${{ secrets.DOCKER_BACKEND_CONTAINER_NAME }}:${{ github.ref_name }} \
+          docker buildx imagetools create -t ${{ secrets.DOCKER_ORG_NAME }}/${{ secrets.DOCKER_BACKEND_CONTAINER_NAME }}:${{ github.ref_name }} \
             $(printf '${{ secrets.DOCKER_ORG_NAME }}/${{ secrets.DOCKER_BACKEND_CONTAINER_NAME }}:%s ' *)
 
       # - name: "[Frontend] - Create manifest list and push"
